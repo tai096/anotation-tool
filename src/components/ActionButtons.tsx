@@ -1,25 +1,19 @@
 import { Download, Tag } from "lucide-react";
-import type { BoundingBox, ImageData } from "./types";
+import type { ImageData } from "./types";
 
 interface ActionButtonsProps {
   currentImage: ImageData | undefined;
-  boxes: BoundingBox[];
   images: ImageData[];
   isLoading: boolean;
   onSimulatePrediction: () => void;
-  onExportAnnotations: () => void;
-  onExportAllAnnotations: () => void;
   onExportCoco: () => void;
 }
 
 export default function ActionButtons({
   currentImage,
-  boxes,
   images,
   isLoading,
   onSimulatePrediction,
-  onExportAnnotations,
-  onExportAllAnnotations,
   onExportCoco,
 }: ActionButtonsProps) {
   return (

@@ -2,14 +2,12 @@ import ImageUpload from "./ImageUpload";
 import TagSelector from "./TagSelector";
 import BoxEditor from "./BoxEditor";
 import ActionButtons from "./ActionButtons";
-import type { ImageData, BoundingBox } from "./types";
+import type { ImageData } from "./types";
 
 interface ControlsPanelProps {
   fileInputRef: React.RefObject<HTMLInputElement | null>;
   selectedTag: string;
   selectedBoxId: string | null;
-  showBoxes: boolean;
-  boxes: BoundingBox[];
   images: ImageData[];
   currentImage?: ImageData;
   isLoading: boolean;
@@ -17,10 +15,8 @@ interface ControlsPanelProps {
   onTagSelect: (tag: string) => void;
   onUpdateSelectedBoxTag: (newTag: string) => void;
   onDeleteSelectedBox: () => void;
-  onToggleBoxes: () => void;
   onSimulatePrediction: () => void;
   onExportAnnotations: () => void;
-  onExportAllAnnotations: () => void;
   onExportCoco: () => void;
 }
 
@@ -28,8 +24,6 @@ export default function ControlsPanel({
   fileInputRef,
   selectedTag,
   selectedBoxId,
-  showBoxes,
-  boxes,
   images,
   currentImage,
   isLoading,
@@ -37,10 +31,7 @@ export default function ControlsPanel({
   onTagSelect,
   onUpdateSelectedBoxTag,
   onDeleteSelectedBox,
-  onToggleBoxes,
   onSimulatePrediction,
-  onExportAnnotations,
-  onExportAllAnnotations,
   onExportCoco,
 }: ControlsPanelProps) {
   return (
@@ -62,12 +53,9 @@ export default function ControlsPanel({
       {/* Actions */}
       <ActionButtons
         currentImage={currentImage}
-        boxes={boxes}
         images={images}
         isLoading={isLoading}
         onSimulatePrediction={onSimulatePrediction}
-        onExportAnnotations={onExportAnnotations}
-        onExportAllAnnotations={onExportAllAnnotations}
         onExportCoco={onExportCoco}
       />
     </div>

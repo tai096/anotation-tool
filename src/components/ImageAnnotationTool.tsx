@@ -15,7 +15,6 @@ export default function ImageAnnotationTool() {
     currentBox,
     fileInputRef,
     setSelectedTag,
-    setShowBoxes,
     navigateImage,
     handleImageUpload,
     handleMouseDown,
@@ -25,7 +24,6 @@ export default function ImageAnnotationTool() {
     deleteSelectedBox,
     updateSelectedBoxTag,
     exportAnnotations,
-    exportAllAnnotations,
     simulateLLMPrediction,
     exportCoco,
   } = useAnnotationLogic();
@@ -43,8 +41,6 @@ export default function ImageAnnotationTool() {
             fileInputRef={fileInputRef}
             selectedTag={selectedTag}
             selectedBoxId={selectedBoxId}
-            showBoxes={showBoxes}
-            boxes={boxes}
             images={images}
             currentImage={currentImage}
             isLoading={isLoading}
@@ -52,10 +48,8 @@ export default function ImageAnnotationTool() {
             onTagSelect={setSelectedTag}
             onUpdateSelectedBoxTag={updateSelectedBoxTag}
             onDeleteSelectedBox={deleteSelectedBox}
-            onToggleBoxes={setShowBoxes}
             onSimulatePrediction={simulateLLMPrediction}
             onExportAnnotations={exportAnnotations}
-            onExportAllAnnotations={exportAllAnnotations}
             onExportCoco={exportCoco}
           />
 
