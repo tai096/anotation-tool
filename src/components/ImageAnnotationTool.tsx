@@ -1,6 +1,5 @@
 import ControlsPanel from "./ControlsPanel";
 import AnnotationCanvas from "./AnnotationCanvas";
-import Instructions from "./Instructions";
 import { useAnnotationLogic } from "./useAnnotationLogic";
 
 export default function ImageAnnotationTool() {
@@ -77,9 +76,6 @@ export default function ImageAnnotationTool() {
               onMouseLeave={handleMouseLeave}
               onNavigateImage={navigateImage}
             />
-
-            {/* Instructions */}
-            <Instructions />
           </div>
         </div>
       </div>

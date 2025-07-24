@@ -50,6 +50,11 @@ export default function AnnotationCanvas({
     // Draw ground truth boxes
     if (showBoxes) {
       boxes.forEach((box) => {
+        // Fill the bounding box with semi-transparent black
+        ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+        ctx.fillRect(box.x, box.y, box.width, box.height);
+
+        // Draw the border
         ctx.strokeStyle = box.id === selectedBoxId ? "#ffffff" : box.color;
         ctx.lineWidth = box.id === selectedBoxId ? 3 : 2;
         ctx.strokeRect(box.x, box.y, box.width, box.height);
@@ -71,6 +76,16 @@ export default function AnnotationCanvas({
       currentBox.width !== undefined &&
       currentBox.height !== undefined
     ) {
+      // Fill the current box with semi-transparent black
+      ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+      ctx.fillRect(
+        currentBox.x,
+        currentBox.y,
+        currentBox.width,
+        currentBox.height
+      );
+
+      // Draw the border
       ctx.strokeStyle = TAG_COLORS[selectedTag as keyof typeof TAG_COLORS];
       ctx.lineWidth = 2;
       ctx.strokeRect(

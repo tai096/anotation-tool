@@ -32,23 +32,7 @@ export default function ActionButtons({
           className="w-full flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
         >
           <Tag size={16} />
-          {isLoading ? "Generating..." : "Generate GT Boxes"}
-        </button>
-        <button
-          onClick={onExportAnnotations}
-          disabled={boxes.length === 0}
-          className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-        >
-          <Download size={16} />
-          Export Current GT
-        </button>
-        <button
-          onClick={onExportAllAnnotations}
-          disabled={images.length === 0}
-          className="w-full flex items-center justify-center gap-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors"
-        >
-          <Download size={16} />
-          Export All GT
+          {isLoading ? "Predicting..." : "Predict Tags"}
         </button>
         <button
           onClick={onExportCoco}
